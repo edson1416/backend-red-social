@@ -21,6 +21,20 @@ class UserSeeder extends Seeder
                 'direccion' => "Col. Costa Rica",
                 'telefono' => "73032997",
                 'fecha_nacimiento' => "2000-04-10",
+            ],
+            ['name' => 'Celina Martinez',
+                'email' => 'celi@gmail.com',
+                'password' => bcrypt('password'),
+                'direccion' => "Col. Costa Rica",
+                'telefono' => "75022997",
+                'fecha_nacimiento' => "2000-08-31",
+            ],
+            ['name' => 'Juan Pablo',
+            'email' => 'juan@gmail.com',
+            'password' => bcrypt('password'),
+            'direccion' => "Col. Costa Rica",
+            'telefono' => "73032989",
+            'fecha_nacimiento' => "2000-04-10",
             ]
         ])->each(function ($user) {
             User::create($user);

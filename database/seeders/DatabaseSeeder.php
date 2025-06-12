@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
                 UserSeeder::class,
                 TipoReaccionSeeder::class,
                 EstadosPrivacidadSeeder::class,
+                EstadosSolicitudSeeder::class,
 
                 //pruebas
                 PublicacionSeeder::class,

@@ -13,10 +13,24 @@ class PublicacionSeeder extends Seeder
      */
     public function run(): void
     {
-        Publicacion::create([
-            'body' => 'Hola mundo',
-            'url_imagen' => 'http://localhost',
-            'user_id' => 1,
-        ]);
+        collect([
+            [
+                'body' => 'Hola mundo',
+                'url_imagen' => 'http://localhost',
+                'user_id' => 2,
+            ],
+            [
+                'body' => 'jajaj xd',
+                'url_imagen' => 'http://localhost',
+                'user_id' => 2,
+            ],
+            [
+                'body' => 'No me interesa',
+                'url_imagen' => 'http://localhost',
+                'user_id' => 3,
+            ]
+        ])->each(function ($publicacion) {
+            Publicacion::create($publicacion);
+        });
     }
 }

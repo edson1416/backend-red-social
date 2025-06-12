@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\PublicacionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\VerificarJwtToken;
@@ -19,4 +20,8 @@ Route::get('/prueba', function (Request $request) {
 Route::group(['prefix' => 'catalogo'], function () {
    Orion::resource('tipo-reaccion', TipoReaccionController::class);
    Orion::resource('estado-privacidad', EstadosPrivacidadController::class);
+});
+
+Route::group(['prefix' => 'publicacion'],function (){
+   Orion::resource('/', PublicacionController::class);
 });

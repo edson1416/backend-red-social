@@ -20,6 +20,9 @@ class DatabaseSeeder extends Seeder
                 UserSeeder::class,
                 TipoReaccionSeeder::class,
                 EstadosPrivacidadSeeder::class,
+
+                //pruebas
+                PublicacionSeeder::class,
             ]
         );
     }

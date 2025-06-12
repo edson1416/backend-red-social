@@ -12,10 +12,7 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::get('/prueba', function (Request $request) {
-  return response()->json(['mensaje' => $request->user()]);
-})->middleware(verificarJwtToken::class);
-
+Route::get('/prueba', [\App\Http\Controllers\API\UsersController::class, 'index']);
 
 Route::group(['prefix' => 'catalogo'], function () {
    Orion::resource('tipo-reaccion', TipoReaccionController::class);

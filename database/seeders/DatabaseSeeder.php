@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
                 EstadosSolicitudSeeder::class,
 
                 //pruebas
+                AmigosSeeder::class,
                 PublicacionSeeder::class,
             ]
         );

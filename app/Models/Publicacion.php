@@ -12,4 +12,8 @@ class Publicacion extends Model
         'url_imagen',
         'user_id',
     ];
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

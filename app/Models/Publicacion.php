@@ -16,4 +16,8 @@ class Publicacion extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+
+    public function imagenes(){
+        return $this->hasMany(ImgPublicaciones::class,'id_publicacion');
+    }
 }

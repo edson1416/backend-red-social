@@ -10,7 +10,7 @@ class PublicacionRequest extends Request
     public function commonRules(): array{
         return [
             'body' => 'required|string|min:1|max:1000',
-            'imagen' => 'nullable|file|mimes:jpeg,jpg,png,gif|max:2000',
+            'imagenes' => 'nullable|array',
         ];
     }
 
@@ -20,9 +20,10 @@ class PublicacionRequest extends Request
             'body.string' => 'El campo body debe ser de tipo texto.',
             'body.min' => 'El campo body debe tener al menos :min caracteres.',
             'body.max' => 'El campo body no puede superar los :max caracteres.',
-            'imagen.file' => 'El campo imagen debe ser de tipo imagen.',
-            'imagen.mimes' => 'El campo imagen debe ser de :mimes .',
-            'imagen.max' => 'El campo imagen debe tener una maximo :max mb.',
+            'imagenes.array' => 'El campo imagenes tiene que ser un array.',
+            'imagenes.image' => 'El campo imagen tiene que ser una imagen.',
+            'imagenes.mimes' => 'Este tipo de imagen no es permitido.',
+            'imagenes.max' => 'La imagen excede los 5MB.'
         ];
     }
 }

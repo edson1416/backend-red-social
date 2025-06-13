@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Comentarios;
 use App\Models\ImgPublicaciones;
 use App\Models\Publicacion;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -28,6 +29,11 @@ class PublicacionSeeder extends Seeder
             ImgPublicaciones::create([
                 'id_publicacion' => $publicacion->id,
                 'ruta' => 'http://localhost',
+            ]);
+            Comentarios::create([
+                'comentario' => 'comentario de prueba',
+                'id_publicacion' => $publicacion->id,
+                'id_autor' => 1,
             ]);
         });
     }

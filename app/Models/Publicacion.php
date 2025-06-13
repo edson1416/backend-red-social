@@ -20,4 +20,8 @@ class Publicacion extends Model
     public function imagenes(){
         return $this->hasMany(ImgPublicaciones::class,'id_publicacion');
     }
+
+    public function comentarios(){
+        return $this->hasMany(Comentarios::class,'id_publicacion');
+    }
 }

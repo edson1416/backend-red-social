@@ -21,7 +21,7 @@ class PublicacionController extends Controller
     public function alwaysIncludes(): array
 
     {
-        return ['user', 'imagenes'];
+        return ['user', 'imagenes','comentarios.autor'];
     }
 
     protected function buildIndexFetchQuery(Request $request, array $requestedRelations): Builder
@@ -34,7 +34,11 @@ class PublicacionController extends Controller
 
         $query->with(['user' => function ($query) {
             $query->select('id', 'name', 'email');
-        }])->whereIn('user_id', $amigosIds);
+            },
+            'comentarios.autor' => function ($query) {
+                $query->select('id', 'name', 'email');
+            }
+        ])->whereIn('user_id', $amigosIds);
 
         return $query;
     }

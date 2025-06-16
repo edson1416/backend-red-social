@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('config_publicaciones', function (Blueprint $table) {
             $table->id();
             $table->foreignId('id_publicacion')->constrained('publicaciones');
-            $table->foreignId('id_estado_privacidad')->constrained('estados_privacidad');
+            $table->foreignId('id_visible_privacidad')->constrained('estados_privacidad');
+            $table->foreignId('id_comentario_privacidad')->constrained('estados_privacidad');
             $table->timestamps();
         });
     }

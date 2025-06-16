@@ -42,7 +42,7 @@ class PublicacionController extends Controller
         ])->where(function ($query) use ($amigosIds) {
             $query->whereIn('id', $amigosIds)
                 ->orWhereHas('configuracion', function ($query) {
-                    $query->where('id_estado_privacidad', 2);
+                    $query->where('id_visible_privacidad', 2);
                 });
         });
 

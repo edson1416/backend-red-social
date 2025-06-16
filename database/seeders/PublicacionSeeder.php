@@ -33,7 +33,8 @@ class PublicacionSeeder extends Seeder
         ]);
         ConfigPublicacion::create([
             'id_publicacion' => $publicacionAmigo->id,
-            'id_estado_privacidad' => 1 //privado
+            'id_visible_privacidad' => 1, //privado
+            'id_comentario_privacidad' => 1,
         ]);
         //publicacion random publica
 
@@ -54,7 +55,8 @@ class PublicacionSeeder extends Seeder
 
         ConfigPublicacion::create([
             'id_publicacion' => $publicacionRandomPublica->id,
-            'id_estado_privacidad' => 2 //publica
+            'id_visible_privacidad' => 2 ,//publica
+            'id_comentario_privacidad' => 1
         ]);
 
         //publicacion random privada
@@ -70,7 +72,8 @@ class PublicacionSeeder extends Seeder
 
         ConfigPublicacion::create([
             'id_publicacion' => $publicacionRandomPrivada->id,
-            'id_estado_privacidad' => 1
+            'id_visible_privacidad' => 1,
+            'id_comentario_privacidad' => 1,
         ]);
     }
 }

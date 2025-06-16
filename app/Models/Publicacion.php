@@ -26,6 +26,6 @@ class Publicacion extends Model
     }
 
     public function configuracion(){
-        return $this->hasMany(ConfigPublicacion::class,'id_publicacion');
+        return $this->hasOne(ConfigPublicacion::class,'id_publicacion');
     }
 }

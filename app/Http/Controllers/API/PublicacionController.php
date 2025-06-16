@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Requests\PublicacionRequest;
 use App\Models\Amigos;
+use App\Models\ConfigPublicacion;
 use App\Models\ImgPublicaciones;
 use App\Models\Publicacion;
 use Illuminate\Database\Eloquent\Builder;
@@ -67,5 +68,10 @@ class PublicacionController extends Controller
                 'ruta' => $rutaImagen,
             ]);
         }
+
+        ConfigPublicacion::create([
+           'id_publicacion' => $entity->id,
+           'id_estado_privacidad' => $request->id_estado_privacidad,
+        ]);
     }
 }

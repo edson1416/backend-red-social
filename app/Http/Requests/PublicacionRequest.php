@@ -11,6 +11,7 @@ class PublicacionRequest extends Request
         return [
             'body' => 'required|string|min:1|max:1000',
             'imagenes' => 'nullable|array',
+            'id_estado_privacidad' => 'required|integer|exists:estados_privacidad,id',
         ];
     }
 
@@ -21,9 +22,9 @@ class PublicacionRequest extends Request
             'body.min' => 'El campo body debe tener al menos :min caracteres.',
             'body.max' => 'El campo body no puede superar los :max caracteres.',
             'imagenes.array' => 'El campo imagenes tiene que ser un array.',
-            'imagenes.image' => 'El campo imagen tiene que ser una imagen.',
-            'imagenes.mimes' => 'Este tipo de imagen no es permitido.',
-            'imagenes.max' => 'La imagen excede los 5MB.'
+            'id_estado_privacidad.required' => 'El campo id_estado_privacidad es obligatorio.',
+            'id_estado_privacidad.integer' => 'El campo id_estado_privacidad debe ser un entero.',
+            'id_estado_privacidad.exists' => 'El estado de privacidad seleccionado no existe.',
         ];
     }
 }

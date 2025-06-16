@@ -24,4 +24,8 @@ class Publicacion extends Model
     public function comentarios(){
         return $this->hasMany(Comentarios::class,'id_publicacion');
     }
+
+    public function configuracion(){
+        return $this->hasMany(ConfigPublicacion::class,'id_publicacion');
+    }
 }

@@ -21,7 +21,7 @@ class PublicacionController extends Controller
     public function alwaysIncludes(): array
 
     {
-        return ['user', 'imagenes','comentarios.autor'];
+        return ['user', 'imagenes', 'comentarios.autor', 'configuracion'];
     }
 
     protected function buildIndexFetchQuery(Request $request, array $requestedRelations): Builder
@@ -34,11 +34,16 @@ class PublicacionController extends Controller
 
         $query->with(['user' => function ($query) {
             $query->select('id', 'name', 'email');
-            },
+        },
             'comentarios.autor' => function ($query) {
                 $query->select('id', 'name', 'email');
             }
-        ])->whereIn('user_id', $amigosIds);
+        ])->where(function ($query) use ($amigosIds) {
+            $query->whereIn('id', $amigosIds)
+                ->orWhereHas('configuracion', function ($query) {
+                    $query->where('id_estado_privacidad', 2);
+                });
+        });
 
         return $query;
     }
@@ -49,7 +54,8 @@ class PublicacionController extends Controller
         $request->merge(['user_id' => $idUsuario]);
     }
 
-    protected function afterStore(Request $request, Model $entity){
+    protected function afterStore(Request $request, Model $entity)
+    {
         $imagenes = $request->file("imagenes", []);
 
         foreach ($imagenes as $imagen) {

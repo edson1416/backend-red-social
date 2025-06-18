@@ -9,6 +9,7 @@ use App\Http\Controllers\API\TipoReaccionController;
 use App\Http\Controllers\API\EstadosPrivacidadController;
 use App\Http\Controllers\API\ComentariosController;
 use App\Http\Controllers\API\ReaccionesController;
+use App\Http\Controllers\API\SolicitudesAmistadController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -25,4 +26,9 @@ Route::group(['prefix' => 'publicacion'],function (){
    Orion::resource('/', PublicacionController::class);
    Orion::resource('/comentarios', ComentariosController::class);
    Route::post('/reaccion', [ReaccionesController::class,'reaccionar']);
+});
+
+Route::group(['prefix' => 'solicitud-amistad'],function (){
+    Route::post('/enviar', [SolicitudesAmistadController::class,'enviarSolicitud']);
+    Route::post('/resolver', [SolicitudesAmistadController::class,'resolverSolicitud']);
 });

@@ -22,7 +22,7 @@ class PublicacionController extends Controller
     public function alwaysIncludes(): array
 
     {
-        return ['user', 'imagenes', 'comentarios.autor', 'configuracion'];
+        return ['user', 'imagenes', 'comentarios.autor', 'configuracion','reacciones.tipo_reaccion','reacciones.usuario'];
     }
 
     protected function buildIndexFetchQuery(Request $request, array $requestedRelations): Builder
@@ -37,6 +37,9 @@ class PublicacionController extends Controller
             $query->select('id', 'name', 'email');
         },
             'comentarios.autor' => function ($query) {
+                $query->select('id', 'name', 'email');
+            },
+            'reacciones.usuario' => function ($query) {
                 $query->select('id', 'name', 'email');
             }
         ])->where(function ($query) use ($amigosIds) {

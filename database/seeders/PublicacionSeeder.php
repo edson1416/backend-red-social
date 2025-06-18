@@ -6,6 +6,7 @@ use App\Models\Comentarios;
 use App\Models\ConfigPublicacion;
 use App\Models\ImgPublicaciones;
 use App\Models\Publicacion;
+use App\Models\Reacciones;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -35,6 +36,18 @@ class PublicacionSeeder extends Seeder
             'id_publicacion' => $publicacionAmigo->id,
             'id_visible_privacidad' => 1, //privado
             'id_comentario_privacidad' => 1,
+        ]);
+
+        Reacciones::create([
+            'id_tipo_reaccion' => 1,
+            'id_publicacion' => $publicacionAmigo->id,
+            'id_usuario' => 1, //edson sarmiento
+        ]);
+
+        Reacciones::create([
+            'id_tipo_reaccion' => 2,
+            'id_publicacion' => $publicacionAmigo->id,
+            'id_usuario' => 2
         ]);
         //publicacion random publica
 

@@ -28,4 +28,8 @@ class Publicacion extends Model
     public function configuracion(){
         return $this->hasOne(ConfigPublicacion::class,'id_publicacion');
     }
+
+    public function reacciones(){
+        return $this->hasMany(Reacciones::class,'id_publicacion');
+    }
 }

@@ -22,6 +22,10 @@ class EstadosSolicitudSeeder extends Seeder
                 'estado' => 'aceptado',
                 'descripcion' => 'solicitud aceptada'
             ],
+            [
+                'estado' => 'rechazado',
+                'descripcion' => 'solicitud rechazada'
+            ],
         ])->each(function ($estado) {
             EstadosSolicitud::create($estado);
         });

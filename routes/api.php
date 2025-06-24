@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\MisChatsController;
 use App\Http\Controllers\API\PublicacionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -29,4 +30,8 @@ Route::group(['prefix' => 'publicacion'],function (){
 Route::group(['prefix' => 'solicitud-amistad'],function (){
     Route::post('/enviar', [SolicitudesAmistadController::class,'enviarSolicitud']);
     Route::post('/resolver', [SolicitudesAmistadController::class,'resolverSolicitud']);
+});
+
+Route::group(['prefix' => 'chats'],function (){
+   Route::get('/mis-chats', [MisChatsController::class,'misChats']);
 });

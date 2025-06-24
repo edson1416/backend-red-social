@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
                 //pruebas
                 AmigosSeeder::class,
                 PublicacionSeeder::class,
+                ConversacionSeeder::class,
             ]
         );
     }

@@ -54,12 +54,14 @@ class ConversacionSeeder extends Seeder
            'chat_id' => $chat->id,
            'user_id' => 1,
            'mensaje' => 'Hola celinaaa',
+            'visto' => true
         ]);
 
         $mensaje2 = Mensajes::create([
             'chat_id' => $chat->id,
             'user_id' => 2,
             'mensaje' => 'Hola edson',
+            'visto' => true
         ]);
 
         //img imagen

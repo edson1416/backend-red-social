@@ -11,6 +11,7 @@ use App\Http\Controllers\API\EstadosPrivacidadController;
 use App\Http\Controllers\API\ComentariosController;
 use App\Http\Controllers\API\ReaccionesController;
 use App\Http\Controllers\API\SolicitudesAmistadController;
+use App\Http\Controllers\API\UsersController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -34,4 +35,8 @@ Route::group(['prefix' => 'solicitud-amistad'],function (){
 
 Route::group(['prefix' => 'chats'],function (){
    Route::get('/mis-chats', [MisChatsController::class,'misChats']);
+});
+
+Route::group(['prefix' => 'usuario'],function (){
+    Route::post('/desconectar',[UsersController::class,'desconectar']);
 });

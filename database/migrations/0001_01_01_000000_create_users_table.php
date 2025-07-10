@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('direccion')->nullable();
             $table->string('telefono')->nullable();
             $table->date('fecha_nacimiento');
+            $table->boolean('conectado')->default(false);
+            $table->dateTime('fecha_ultima_conexion')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

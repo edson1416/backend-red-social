@@ -14,7 +14,7 @@ class MisChatsController extends Controller
             $query->select('id','user_id','chat_id');
         },
             'chats.miembros.user' => function ($query) {
-                $query->select('id','name','email');
+                $query->select('id','name','email','conectado','fecha_ultima_conexion');
             }
         ])->where('user_id',$request->user()->id)->get();
 
